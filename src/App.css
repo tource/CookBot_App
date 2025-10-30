@@ -3,6 +3,13 @@
   text-align: center;
 }
 
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
 .App {
   min-height: 100vh;
   background: #0065ff;

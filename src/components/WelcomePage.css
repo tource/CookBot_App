@@ -38,13 +38,23 @@
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
 @keyframes pulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.05); }
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
 }
 
 .welcome-text {
@@ -198,16 +208,16 @@
   .welcome-content {
     padding: 30px 16px;
   }
-  
+
   .welcome-subtitle {
     font-size: 24px;
   }
-  
+
   .cookbot-illustration {
     max-width: 250px;
     height: 250px;
   }
-  
+
   .steps-container {
     padding: 24px;
   }

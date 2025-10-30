@@ -1,11 +1,11 @@
 import { useState } from "react";
-import { WelcomePage } from "./components/WelcomePage";
 import { IngredientInput } from "./components/IngredientInput";
 import { RecipeList } from "./components/RecipeList";
 import { AdModal } from "./components/AdModal";
 import { useRewardedAd } from "./hooks/useRewardedAd";
 import { getAIRecipeRecommendations } from "./services/recipeService";
 import "./App.css";
+import WelcomePage from "./components/WelcomePage";
 
 function App() {
   const [currentPage, setCurrentPage] = useState("welcome"); // 'welcome', 'main'

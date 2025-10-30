@@ -3,12 +3,14 @@ import { RecipeList } from "./RecipeList";
 import { Asset, Top, Text } from "@toss/tds-mobile";
 import { adaptive } from "@toss/tds-colors";
 import "./IngredientInput.css";
+import ErrorState from "./ErrorState";
 
 export function IngredientInput() {
   const [ingredients, setIngredients] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [recipes, setRecipes] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState(false);
 
   const handleSubmit = async () => {
     if (!ingredients.trim()) {
@@ -88,7 +90,7 @@ JSON 이외의 설명, 문장, 주석, 문법 표시는 절대 포함하지 마�
       setRecipes(parsed);
     } catch (error) {
       console.error("AI 요청 실패:", error);
-      alert("레시피를 불러오는 중 오류가 발생했습니다.");
+      setIsError(true);
     } finally {
       setIsSubmitting(false);
       setIsLoading(false);
@@ -99,8 +101,20 @@ JSON 이외의 설명, 문장, 주석, 문법 표시는 절대 포함하지 마�
     alert(`'${recipe.name}' 레시피를 선택했습니다`);
   };
 
-  // 로딩 UI
+  if (isError) {
+    return (
+      <ErrorState
+        description="예상치 못한 오류가 발생했어요."
+        detail={isError} // <-- isError 상태 사용
+        onRetry={() => {
+          setIsError(""); // 오류 초기화
+          setStep("intro");
+        }}
+      />
+    );
+  }
   if (isLoading) {
+    // 로딩 UI
     return (
       <div
         className="loading-container"
