@@ -178,6 +178,10 @@ JSON 이외의 설명, 문장, 주석, 문법 표시는 절대 포함하지 마�
         <textarea
           value={ingredients}
           onChange={(e) => setIngredients(e.target.value)}
+          onBlur={() => {
+            // 키보드 닫힐 때 원래 위치 복원
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          }}
           placeholder="예: 계란, 양파, 밥, 치즈"
           className="ingredient-textarea"
         />

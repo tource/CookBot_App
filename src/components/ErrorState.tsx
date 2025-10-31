@@ -16,7 +16,18 @@ export default function ErrorState({
   const descriptionDetail = detail ? detail : description;
 
   return (
-    <div style={{ padding: "20px" }}>
+    <div
+      style={{
+        padding: "20px",
+        minHeight: "100vh", // ✅ 모바일에서도 꽉 차게
+        display: "flex", // ✅ 가운데 정렬
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        textAlign: "center",
+        boxSizing: "border-box",
+      }}
+    >
       <Result
         figure={
           <Asset.Icon
@@ -24,8 +35,14 @@ export default function ErrorState({
             frameShape={Asset.frameShape.CleanH24}
           />
         }
-        title={title}
-        description={descriptionDetail}
+        title={
+          <span style={{ color: "#000" }}>{title}</span> // ✅ 혹시 대비 문제 대비
+        }
+        description={
+          <span style={{ whiteSpace: "pre-line", color: "#666" }}>
+            {descriptionDetail}
+          </span>
+        }
         button={<Result.Button onClick={onRetry}>재시도</Result.Button>}
       />
     </div>

@@ -40,14 +40,14 @@ export default function WelcomePage({ onStart, error }: WelcomePageProps) {
 
       <div style={styles.heroSection}>
         <h1 style={styles.title}>
-          일상 셀카 한장으로
+          냉장고 속 재료만으로
           <br />
-          전문 프로필 사진 완성
+          AI 추천 레시피 완성
         </h1>
 
         <Spacing size={12} />
 
-        <p style={styles.subtitle}>AI가 만드는 프로필 사진</p>
+        <p style={styles.subtitle}>AI가 만드는 냉장고 레시피</p>
       </div>
 
       <Spacing size={48} />
